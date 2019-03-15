@@ -1,0 +1,29 @@
+bookstore{
+    color: red;
+    font-size: 10px;
+}
+
+books{
+    display: table
+}
+
+book {
+    display: table-cell
+}
+
+day:before{
+    content: "Dzień: ";
+}
+
+month:before{
+    content: "Miesiąc: ";
+}
+
+year:before{
+    content: "Rok: ";
+}
+
+authors {
+    color: burlywood;
+    font-size: 15px;
+}

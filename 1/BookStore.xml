@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/css" href="stylesheet.css"?>
+
+<bookstore>
+    <authors>
+        <author id="1">
+            <firstName>Bartosz</firstName>
+            <lastName>Kacperski</lastName>
+        </author>
+        <author id="2">
+            <firstName>Paweł</firstName>
+            <lastName>Pomarański</lastName>
+        </author>
+    </authors>
+    <books>
+        <book id="1">
+            <author>1</author>
+            <title>Super ksiązka1</title>
+            <releaseDate>
+                <year>1</year>
+                <month>2</month>
+                <day>1997</day>
+            </releaseDate>
+        </book>
+        <book id="2">
+            <author>2</author>
+            <title>Super ksiązka2</title>
+            <releaseDate>
+                <year>1</year>
+                <month>5</month>
+                <day>2001</day>
+            </releaseDate>
+        </book>
+        <book id="3">
+            <author>1</author>
+            <title>Super ksiązka3</title>
+            <releaseDate>
+                <year>1</year>
+                <month>2</month>
+                <day>1997</day>
+            </releaseDate>
+        </book>
+    </books>
+</bookstore>
