@@ -3,41 +3,54 @@
 
 <bookstore>
     <authors>
-        <author id="1">
+        <author authorId="1">
             <firstName>Bartosz</firstName>
             <lastName>Kacperski</lastName>
         </author>
-        <author id="2">
+        <author authorId="2">
             <firstName>Paweł</firstName>
             <lastName>Pomarański</lastName>
         </author>
     </authors>
     <books>
-        <book id="1">
-            <author>1</author>
+        <book bookId="1" authorId="1">
             <title>Super ksiązka1</title>
             <releaseDate>
-                <year>1</year>
+                <year>1997</year>
                 <month>2</month>
-                <day>1997</day>
+                <day>19</day>
             </releaseDate>
         </book>
-        <book id="2">
-            <author>2</author>
+        <book bookId="2" authorId="2">
             <title>Super ksiązka2</title>
             <releaseDate>
-                <year>1</year>
+                <year>2005</year>
                 <month>5</month>
-                <day>2001</day>
+                <day>21</day>
             </releaseDate>
         </book>
-        <book id="3">
-            <author>1</author>
-            <title>Super ksiązka3</title>
+        <book bookId="3" authorId="1">
+            <title>Sherlock Holmes</title>
             <releaseDate>
-                <year>1</year>
+                <year>2001</year>
+                <month>12</month>
+                <day>25</day>
+            </releaseDate>
+        </book>
+        <book bookId="4" authorId="2">
+            <title>Harry Potter</title>
+            <releaseDate>
+                <year>2003</year>
+                <month>5</month>
+                <day>20</day>
+            </releaseDate>
+        </book>
+        <book bookId="5" authorId="1">
+            <title>Metro 2035</title>
+            <releaseDate>
+                <year>1999</year>
                 <month>2</month>
-                <day>1997</day>
+                <day>22</day>
             </releaseDate>
         </book>
     </books>

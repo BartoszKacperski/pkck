@@ -1,14 +1,32 @@
 bookstore{
-    color: red;
+    background: whitesmoke;
+    color: peru;
     font-size: 10px;
 }
 
 books{
-    display: table
+    display: table;
+    margin: auto;
+    width: 50%;
+    border-collapse: collapse;
+    columns: 3;
 }
 
 book {
-    display: table-cell
+    display: table-row;
+    padding: 4px;
+    border: solid 1px;
+    border-color: black;
+}
+
+title {
+    display: block;
+    text-align: center;
+}
+
+releaseDate {
+    display: block;
+    text-align: center;
 }
 
 day:before{
@@ -23,7 +41,11 @@ year:before{
     content: "Rok: ";
 }
 
+
+
 authors {
-    color: burlywood;
+    display: block;
+    color: purple;
     font-size: 15px;
+    text-align: center;
 }
