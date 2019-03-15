@@ -14,17 +14,17 @@
     </authors>
     <books>
         <book bookId="1" authorId="1">
-            <title>Super ksiązka1</title>
+            <title>Zielona Mila</title>
             <releaseDate>
-                <year>1997</year>
+                <year>1996</year>
                 <month>2</month>
                 <day>19</day>
             </releaseDate>
         </book>
         <book bookId="2" authorId="2">
-            <title>Super ksiązka2</title>
+            <title>Lśnienie</title>
             <releaseDate>
-                <year>2005</year>
+                <year>1977</year>
                 <month>5</month>
                 <day>21</day>
             </releaseDate>
@@ -38,9 +38,9 @@
             </releaseDate>
         </book>
         <book bookId="4" authorId="2">
-            <title>Harry Potter</title>
+            <title>Już mnie nie oszukasz</title>
             <releaseDate>
-                <year>2003</year>
+                <year>2016</year>
                 <month>5</month>
                 <day>20</day>
             </releaseDate>
