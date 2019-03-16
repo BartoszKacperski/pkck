@@ -29,6 +29,18 @@ book {
     border: 1px solid black;
 }
 
+book:before {
+    display: block;
+    text-align: center;
+    content: "Kategoria: " attr(category);
+}
+
+book:after {
+    display: block;
+    text-align: center;
+    content: "Id autora: " attr(authorId);
+}
+
 title {
     display: block;
     text-align: center;
@@ -39,7 +51,6 @@ title:before {
     color: goldenrod;
     content: "Tytuł: ";
 }
-
 
 releaseDate {
     display: block;
@@ -69,10 +80,49 @@ year:before {
     content: "Rok: ";
 }
 
-authors {
+bookstore > authors {
+    display: table;
+    margin: auto;
+    width: 50%;
+    border-collapse: collapse;
+    columns: 2;
+    background: bisque;
+}
+
+bookstore > authors:before {
+    content: "Autorzy";
+    display: block;
+    text-align: center;
+    background-color: sandybrown;
+    color: beige;
+    padding: 5px;
+    border: 1px solid coral;
+}
+
+bookstore > authors > author {
+    display: table-row;
+    padding: 4px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+bookstore > authors > author, firstName, lastName {
+    display: block;
+}
+
+bookstore > authors > author:before {
+    content: "Id: " attr(authorId);
+}
+
+info > authors {
     display: block;
     color: purple;
     font-size: 15px;
-    text-align: center;
     margin: 20px;
+}
+
+
+info > authors > author {
+    display: list-item;
+    list-style: square;
 }

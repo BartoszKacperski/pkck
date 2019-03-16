@@ -1,57 +1,200 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <?xml-stylesheet type="text/css" href="stylesheet.css"?>
 
-<bookstore>
-    <authors>
-        <author authorId="1">
-            <firstName>Bartosz</firstName>
-            <lastName>Kacperski</lastName>
-        </author>
-        <author authorId="2">
-            <firstName>Paweł</firstName>
-            <lastName>Pomarański</lastName>
-        </author>
-    </authors>
-    <books>
-        <book bookId="1" authorId="1">
-            <title>Zielona Mila</title>
-            <releaseDate>
-                <year>1996</year>
-                <month>2</month>
-                <day>19</day>
-            </releaseDate>
-        </book>
-        <book bookId="2" authorId="2">
-            <title>Lśnienie</title>
-            <releaseDate>
-                <year>1977</year>
-                <month>5</month>
-                <day>21</day>
-            </releaseDate>
-        </book>
-        <book bookId="3" authorId="1">
-            <title>Sherlock Holmes</title>
-            <releaseDate>
-                <year>2001</year>
-                <month>12</month>
-                <day>25</day>
-            </releaseDate>
-        </book>
-        <book bookId="4" authorId="2">
-            <title>Już mnie nie oszukasz</title>
-            <releaseDate>
-                <year>2016</year>
-                <month>5</month>
-                <day>20</day>
-            </releaseDate>
-        </book>
-        <book bookId="5" authorId="1">
-            <title>Metro 2035</title>
-            <releaseDate>
-                <year>1999</year>
-                <month>2</month>
-                <day>22</day>
-            </releaseDate>
-        </book>
-    </books>
-</bookstore>
+<root>
+    <info>
+        <authors>
+            <author>Bartosz Kacperski</author>
+            <author>Paweł Pomarański</author>
+        </authors>
+    </info>
+    <bookstore>
+        <authors>
+            <author authorId="1">
+                <firstName>Stephen</firstName>
+                <lastName>King</lastName>
+            </author>
+            <author authorId="2">
+                <firstName>Arthur Conan</firstName>
+                <lastName>Doyle</lastName>
+            </author>
+            <author authorId="3">
+                <firstName>Harlan</firstName>
+                <lastName>Coben</lastName>
+            </author>
+        </authors>
+        <books>
+            <book bookId="1" authorId="1" category="dramat">
+                <title>17 podniebnych koszmarów</title>
+                <releaseDate>
+                    <year>1996</year>
+                    <month>2</month>
+                    <day>19</day>
+                </releaseDate>
+            </book>
+            <book bookId="2" authorId="1" category="horror">
+                <title>999 tom 1</title>
+                <releaseDate>
+                    <year>1977</year>
+                    <month>5</month>
+                    <day>21</day>
+                </releaseDate>
+            </book>
+            <book bookId="3" authorId="1" category="horror">
+                <title>Arcydzieła czarnego kryminału</title>
+                <releaseDate>
+                    <year>1977</year>
+                    <month>5</month>
+                    <day>21</day>
+                </releaseDate>
+            </book>
+            <book bookId="4" authorId="1" category="horror">
+                <title>Ballada o celnym strzale</title>
+                <releaseDate>
+                    <year>1977</year>
+                    <month>5</month>
+                    <day>21</day>
+                </releaseDate>
+            </book>
+            <book bookId="5" authorId="1" category="horror">
+                <title>Bastion</title>
+                <releaseDate>
+                    <year>1977</year>
+                    <month>5</month>
+                    <day>21</day>
+                </releaseDate>
+            </book>
+            <book bookId="6" authorId="1" category="horror">
+                <title>Bazar złych snów</title>
+                <releaseDate>
+                    <year>1977</year>
+                    <month>5</month>
+                    <day>21</day>
+                </releaseDate>
+            </book>
+            <book bookId="7" authorId="1" category="horror">
+                <title>Bezsenność</title>
+                <releaseDate>
+                    <year>1977</year>
+                    <month>5</month>
+                    <day>21</day>
+                </releaseDate>
+            </book>
+            <book bookId="8" authorId="1" category="horror">
+                <title>Buick 8</title>
+                <releaseDate>
+                    <year>1977</year>
+                    <month>5</month>
+                    <day>21</day>
+                </releaseDate>
+            </book>
+            <book bookId="9" authorId="1" category="horror">
+                <title>Carrie</title>
+                <releaseDate>
+                    <year>1977</year>
+                    <month>5</month>
+                    <day>21</day>
+                </releaseDate>
+            </book>
+            <book bookId="10" authorId="1" category="horror">
+                <title>Christine</title>
+                <releaseDate>
+                    <year>1977</year>
+                    <month>5</month>
+                    <day>21</day>
+                </releaseDate>
+            </book>
+            <book bookId="11" authorId="1" category="horror">
+                <title>Cmętarz zwieżąt</title>
+                <releaseDate>
+                    <year>1977</year>
+                    <month>5</month>
+                    <day>21</day>
+                </releaseDate>
+            </book>
+            <book bookId="12" authorId="1" category="horror">
+                <title>Czarna bezgwiezdna noc</title>
+                <releaseDate>
+                    <year>1977</year>
+                    <month>5</month>
+                    <day>21</day>
+                </releaseDate>
+            </book>
+            <book bookId="12" authorId="1" category="horror">
+                <title>Czarnoksiężnik i kryształ</title>
+                <releaseDate>
+                    <year>1977</year>
+                    <month>5</month>
+                    <day>21</day>
+                </releaseDate>
+            </book>
+
+            <book bookId="13" authorId="1" category="akcja">
+                <title>Sherlock Holmes</title>
+                <releaseDate>
+                    <year>2001</year>
+                    <month>12</month>
+                    <day>25</day>
+                </releaseDate>
+            </book>
+
+            <book bookId="14" authorId="2" category="kryminał">
+                <title>Już mnie nie oszukasz</title>
+                <releaseDate>
+                    <year>2016</year>
+                    <month>5</month>
+                    <day>20</day>
+                </releaseDate>
+            </book>
+            <book bookId="15" authorId="1" category="powieść">
+                <title>Aż śmierć nas rozłączy</title>
+                <releaseDate>
+                    <year>1999</year>
+                    <month>2</month>
+                    <day>22</day>
+                </releaseDate>
+            </book>
+            <book bookId="16" authorId="1" category="powieść">
+                <title>Bez pożegnania</title>
+                <releaseDate>
+                    <year>1999</year>
+                    <month>2</month>
+                    <day>22</day>
+                </releaseDate>
+            </book>
+            <book bookId="17" authorId="1" category="powieść">
+                <title>Aż śmierć nas rozłączy</title>
+                <releaseDate>
+                    <year>1999</year>
+                    <month>2</month>
+                    <day>22</day>
+                </releaseDate>
+            </book>
+            <book bookId="18" authorId="1" category="powieść">
+                <title>Bez skrupułów</title>
+                <releaseDate>
+                    <year>1999</year>
+                    <month>2</month>
+                    <day>22</day>
+                </releaseDate>
+            </book>
+            <book bookId="19" authorId="1" category="powieść">
+                <title>Bez śladu</title>
+                <releaseDate>
+                    <year>1999</year>
+                    <month>2</month>
+                    <day>22</day>
+                </releaseDate>
+            </book>
+            <book bookId="20" authorId="1" category="powieść">
+                <title>Błękitna krew</title>
+                <releaseDate>
+                    <year>1999</year>
+                    <month>2</month>
+                    <day>22</day>
+                </releaseDate>
+            </book>
+        </books>
+    </bookstore>
+</root>
+
