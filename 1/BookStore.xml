@@ -1,29 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE root SYSTEM "BookStore.dtd">
 <?xml-stylesheet type="text/css" href="stylesheet.css"?>
-
-<!DOCTYPE root [
-        <!ELEMENT root (info, bookstore)>
-        <!ELEMENT info (owners, description)>
-        <!ELEMENT owners (owner*)>
-        <!ELEMENT owner (#PCDATA)>
-        <!ELEMENT description (#PCDATA)>
-        <!ELEMENT bookstore (authors, books)>
-        <!ELEMENT authors (author*)>
-        <!ELEMENT author (firstName*, lastName)>
-        <!ATTLIST author authorId ID #REQUIRED>
-        <!ELEMENT firstName (#PCDATA)>
-        <!ELEMENT lastName (#PCDATA)>
-        <!ELEMENT books (book*)>
-        <!ELEMENT book (title, releaseDate)>
-        <!ATTLIST book bookId ID #REQUIRED
-                authorId IDREF #REQUIRED
-                category CDATA #REQUIRED>
-        <!ELEMENT title (#PCDATA)>
-        <!ELEMENT releaseDate (year, month, day)>
-        <!ELEMENT year (#PCDATA)>
-        <!ELEMENT month (#PCDATA)>
-        <!ELEMENT day (#PCDATA)>
-        ]>
 
 <root>
     <info>

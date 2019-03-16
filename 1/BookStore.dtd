@@ -1,0 +1,24 @@
+<!ENTITY % Categories "(kryminał|powieść|horror|dramat|akcja)">
+<!ELEMENT root (info, bookstore)>
+<!ELEMENT info (owners, description)>
+<!ELEMENT owners (owner*)>
+<!ELEMENT owner (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT bookstore (authors, books)>
+<!ELEMENT authors (author*)>
+<!ELEMENT author (firstName*, lastName)>
+<!ATTLIST author authorId ID #REQUIRED>
+<!ELEMENT firstName (#PCDATA)>
+<!ELEMENT lastName (#PCDATA)>
+<!ELEMENT books (book*)>
+<!ELEMENT book (title, releaseDate)>
+<!ATTLIST book
+        bookId ID #REQUIRED
+        authorId IDREF #REQUIRED
+        category %Categories; #REQUIRED
+>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT releaseDate (year, month, day)>
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT month (#PCDATA)>
+<!ELEMENT day (#PCDATA)>
