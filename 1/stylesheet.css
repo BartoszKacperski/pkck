@@ -106,12 +106,17 @@ bookstore > authors > author {
     text-align: center;
 }
 
-bookstore > authors > author, firstName, lastName {
+bookstore > authors > author, firstName, lastName, pseudonym {
     display: block;
 }
 
 bookstore > authors > author:before {
     content: "Id: " attr(authorId);
+}
+
+bookstore > authors > author> pseudonym:before {
+    content: "Pseudonim: ";
+    color: darkgoldenrod;
 }
 
 info > owners {

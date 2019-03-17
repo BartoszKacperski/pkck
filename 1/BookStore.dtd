@@ -6,10 +6,11 @@
 <!ELEMENT description (#PCDATA)>
 <!ELEMENT bookstore (authors, books)>
 <!ELEMENT authors (author*)>
-<!ELEMENT author (firstName*, lastName)>
+<!ELEMENT author (firstName+, lastName, pseudonym?)>
 <!ATTLIST author authorId ID #REQUIRED>
 <!ELEMENT firstName (#PCDATA)>
 <!ELEMENT lastName (#PCDATA)>
+<!ELEMENT pseudonym (#PCDATA)>
 <!ELEMENT books (book*)>
 <!ELEMENT book (title, releaseDate)>
 <!ATTLIST book

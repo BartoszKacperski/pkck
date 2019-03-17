@@ -17,6 +17,7 @@
             <author authorId="a1">
                 <firstName>Stephen</firstName>
                 <lastName>King</lastName>
+                <pseudonym>Richard Bachman</pseudonym>
             </author>
             <author authorId="a2">
                 <firstName>Arthur</firstName>
