@@ -35,6 +35,13 @@ book:before {
     content: "Kategoria: " attr(category);
 }
 
+book[pages]:after {
+    display: block;
+    text-align: center;
+    white-space: pre;
+    content: "Strony: " attr(pages) '\A' "Id autora: " attr(authorId);
+}
+
 book:after {
     display: block;
     text-align: center;

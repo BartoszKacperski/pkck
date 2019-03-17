@@ -30,7 +30,7 @@
             </author>
         </authors>
         <books>
-            <book bookId="b1" authorId="a1" category="dramat">
+            <book bookId="b1" authorId="a1" category="dramat" pages="200">
                 <title>17 podniebnych koszmarów</title>
                 <releaseDate>
                     <year>1996</year>
@@ -46,7 +46,7 @@
                     <day>21</day>
                 </releaseDate>
             </book>
-            <book bookId="b3" authorId="a1" category="horror">
+            <book bookId="b3" authorId="a1" category="horror" pages="364">
                 <title>Arcydzieła czarnego kryminału</title>
                 <releaseDate>
                     <year>1977</year>

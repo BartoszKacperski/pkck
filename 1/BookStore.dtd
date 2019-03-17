@@ -17,6 +17,7 @@
         bookId ID #REQUIRED
         authorId IDREF #REQUIRED
         category %Categories; #REQUIRED
+        pages NMTOKEN #IMPLIED
 >
 <!ELEMENT title (#PCDATA)>
 <!ELEMENT releaseDate (year, month, day)>
