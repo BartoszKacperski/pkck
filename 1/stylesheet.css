@@ -32,7 +32,7 @@ book {
 book:before {
     display: block;
     text-align: center;
-    content: "Kategoria: " attr(category);
+    content: "Kategoria: " attr(category) " Ocena: "attr(rating);
 }
 
 book[pages]:after {

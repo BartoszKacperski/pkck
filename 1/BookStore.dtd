@@ -18,6 +18,7 @@
         authorId IDREF #REQUIRED
         category %Categories; #REQUIRED
         pages NMTOKEN #IMPLIED
+        rating (5|4|3|2|1|brak) "brak"
 >
 <!ELEMENT title (#PCDATA)>
 <!ELEMENT releaseDate (year, month, day)>
