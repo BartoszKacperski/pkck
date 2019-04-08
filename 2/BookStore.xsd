@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:type="http://www.example.org/types" targetNamespace="http://www.example.org/types" elementFormDefault="qualified">
+
+    <xs:element name="root">
+    <xs:complexType >
+        <xs:sequence>
+            <xs:element name="info" type="type:infoType" />
+            <xs:element name="bookstore" type="type:bookstoreType" />
+        </xs:sequence>
+    </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="infoType">
+        <xs:sequence>
+            <xs:element name="owners" type="type:ownersType"/>
+            <xs:element name="description" type="xs:normalizedString" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ownersType">
+        <xs:sequence>
+            <xs:element name="owner" type="xs:normalizedString" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="bookstoreType">
+        <xs:sequence>
+            <xs:element name="authors" type="type:authorsType"/>
+            <xs:element name="books" type="type:booksType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="authorsType">
+        <xs:sequence>
+            <xs:element name="author" type="type:authorType" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="authorType">
+        <xs:sequence>
+            <xs:element name="firstName" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="lastName" type="xs:string"/>
+            <xs:element name="pseudonym" type="xs:string" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+        <xs:attribute name="authorId" type="xs:token" use="required" />
+    </xs:complexType>
+
+    <xs:complexType name="booksType">
+        <xs:sequence>
+            <xs:element name="book" type="type:bookType" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="bookType">
+        <xs:sequence>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="releaseDate" type="type:releaseDateType"/>
+        </xs:sequence>
+        <xs:attribute name="authorId" type="xs:token" use="required"/>
+        <xs:attribute name="bookId" type="xs:token" use="required"/>
+        <xs:attribute name="category" type="xs:token" use="required"/>
+        <xs:attribute name="pages" type="xs:positiveInteger"/>
+        <xs:attribute name="rating" type="xs:token" default="brak"/>
+    </xs:complexType>
+
+    <xs:complexType name="releaseDateType">
+        <xs:sequence>
+            <xs:element name="year" type="xs:gYear"/>
+            <xs:element name="month" type="xs:gMonth"/>
+            <xs:element name="day" type="xs:gDay"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
