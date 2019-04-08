@@ -2,14 +2,12 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
     xmlns:type="http://www.example.org/types" targetNamespace="http://www.example.org/types" elementFormDefault="qualified">
 
-    <xs:element name="root">
-    <xs:complexType >
+    <xs:complexType name="rootType">
         <xs:sequence>
             <xs:element name="info" type="type:infoType" />
             <xs:element name="bookstore" type="type:bookstoreType" />
         </xs:sequence>
     </xs:complexType>
-    </xs:element>
 
     <xs:complexType name="infoType">
         <xs:sequence>
@@ -39,9 +37,9 @@
 
     <xs:complexType name="authorType">
         <xs:sequence>
-            <xs:element name="firstName" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
-            <xs:element name="lastName" type="xs:string"/>
-            <xs:element name="pseudonym" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="firstName" type="xs:normalizedString" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="lastName" type="xs:normalizedString"/>
+            <xs:element name="pseudonym" type="xs:normalizedString" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
         <xs:attribute name="authorId" type="xs:token" use="required" />
     </xs:complexType>
@@ -52,6 +50,27 @@
         </xs:sequence>
     </xs:complexType>
 
+    <xs:simpleType name="categories"> 
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="kryminał"/>
+				<xs:enumeration value="powieść"/>
+				<xs:enumeration value="horror"/>
+				<xs:enumeration value="dramat"/>
+				<xs:enumeration value="akcja"/>
+			</xs:restriction> 
+	</xs:simpleType>
+
+    <xs:simpleType name="ratings"> 
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="1"/>
+				<xs:enumeration value="2"/>
+				<xs:enumeration value="3"/>
+				<xs:enumeration value="4"/>
+				<xs:enumeration value="5"/>
+				<xs:enumeration value="brak"/>
+			</xs:restriction> 
+	</xs:simpleType>
+
     <xs:complexType name="bookType">
         <xs:sequence>
             <xs:element name="title" type="xs:string"/>
@@ -59,9 +78,9 @@
         </xs:sequence>
         <xs:attribute name="authorId" type="xs:token" use="required"/>
         <xs:attribute name="bookId" type="xs:token" use="required"/>
-        <xs:attribute name="category" type="xs:token" use="required"/>
+        <xs:attribute name="category" type="type:categories" use="required"/>
         <xs:attribute name="pages" type="xs:positiveInteger"/>
-        <xs:attribute name="rating" type="xs:token" default="brak"/>
+        <xs:attribute name="rating" type="type:ratings" default="brak"/>
     </xs:complexType>
 
     <xs:complexType name="releaseDateType">
@@ -71,4 +90,19 @@
             <xs:element name="day" type="xs:gDay"/>
         </xs:sequence>
     </xs:complexType>
+
+    <xs:element name="root" type="type:rootType">
+        <xs:key name="AuthorId">
+            <xs:selector xpath="type:bookstore/type:authors/type:author"/>
+			<xs:field xpath="@authorId" />
+        </xs:key>
+        <xs:key name="BookId">
+            <xs:selector xpath="type:bookstore/type:books/type:book"/>
+			<xs:field xpath="@bookId" />
+        </xs:key>
+        <xs:keyref name="AuthorRef" refer="type:AuthorId">
+			<xs:selector xpath="type:bookstore/type:books/type:book"/>
+			<xs:field xpath="@authorId"/>
+		</xs:keyref>
+    </xs:element>
 </xs:schema>
