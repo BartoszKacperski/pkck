@@ -18,8 +18,19 @@
 
     <xs:complexType name="ownersType">
         <xs:sequence>
-            <xs:element name="owner" type="xs:normalizedString" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="owner" type="type:ownerType" minOccurs="1" maxOccurs="unbounded"/>
         </xs:sequence>
+    </xs:complexType>
+
+    <xs:group name="namesGroup">
+        <xs:sequence>
+            <xs:element name="firstName" type="xs:normalizedString" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="lastName" type="xs:normalizedString"/>
+        </xs:sequence>
+    </xs:group>
+
+    <xs:complexType name="ownerType">
+        <xs:group ref="type:namesGroup"/>
     </xs:complexType>
 
     <xs:complexType name="bookstoreType">
@@ -37,8 +48,7 @@
 
     <xs:complexType name="authorType">
         <xs:sequence>
-            <xs:element name="firstName" type="xs:normalizedString" minOccurs="1" maxOccurs="unbounded"/>
-            <xs:element name="lastName" type="xs:normalizedString"/>
+            <xs:group ref="type:namesGroup"/>
             <xs:element name="pseudonym" type="xs:normalizedString" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
         <xs:attribute name="authorId" type="xs:token" use="required" />

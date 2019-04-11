@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?xml-stylesheet type="text/css" href="stylesheet.css"?>
 
-<root xmlns="http://www.example.org/types"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-xsi:schemaLocation="http://www.example.org/types BookStore.xsd">
+<root xmlns="http://www.example.org/types" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/types BookStore.xsd">
     <info>
         <owners>
-            <owner>Bartosz Kacperski</owner>
-            <owner>Paweł Pomarański</owner>
+            <owner>
+                <firstName>Bartosz</firstName>
+                <firstName>Antoni</firstName>
+                <lastName>Kacperski</lastName>
+            </owner>
+            <owner>
+                <firstName>Paweł</firstName>
+                <lastName>Pomarański</lastName>
+            </owner>
         </owners>
         <description>
             Dokument zawiera katalog książek w bibliotece
