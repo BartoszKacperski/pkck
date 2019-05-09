@@ -56,7 +56,7 @@
                     <xsl:value-of select="count(distinct-values(/root/bookstore/books/book/@category))"/>
                 </xsl:element>
                 <xsl:element name="averagePages">
-                    <xsl:value-of select="format-number($totalPages div $booksCount, '0.00')"/>
+                    <xsl:value-of select="format-number($totalPages div $booksCount, '0')"/>
                 </xsl:element>
                 <xsl:element name="date">
                     <xsl:value-of select="current-dateTime()"/>

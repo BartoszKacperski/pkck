@@ -1,0 +1,171 @@
+<report>
+   <books>
+      <book>
+         <title>17 podniebnych koszmarów</title>
+         <author>Stephen King</author>
+         <category>dramat</category>
+         <pages>200</pages>
+         <rating>brak</rating>
+         <releaseDate>1996-02-19</releaseDate>
+      </book>
+      <book>
+         <title>999 tom 1</title>
+         <author>Stephen King</author>
+         <category>horror</category>
+         <pages>123</pages>
+         <rating>2</rating>
+         <releaseDate>1977-05-21</releaseDate>
+      </book>
+      <book>
+         <title>Arcydzieła czarnego kryminału</title>
+         <author>Stephen King</author>
+         <category>horror</category>
+         <pages>364</pages>
+         <rating>brak</rating>
+         <releaseDate>1977-05-21</releaseDate>
+      </book>
+      <book>
+         <title>Ballada o celnym strzale</title>
+         <author>Stephen King</author>
+         <category>horror</category>
+         <pages>421</pages>
+         <rating>4</rating>
+         <releaseDate>1977-05-21</releaseDate>
+      </book>
+      <book>
+         <title>Bastion</title>
+         <author>Stephen King</author>
+         <category>horror</category>
+         <pages>65</pages>
+         <rating>brak</rating>
+         <releaseDate>1977-05-21</releaseDate>
+      </book>
+      <book>
+         <title>Bazar złych snów</title>
+         <author>Stephen King</author>
+         <category>horror</category>
+         <pages>545</pages>
+         <rating>2</rating>
+         <releaseDate>1977-05-21</releaseDate>
+      </book>
+      <book>
+         <title>Bezsenność</title>
+         <author>Stephen King</author>
+         <category>horror</category>
+         <pages>754</pages>
+         <rating>brak</rating>
+         <releaseDate>1977-05-21</releaseDate>
+      </book>
+      <book>
+         <title>Buick 8</title>
+         <author>Stephen King</author>
+         <category>horror</category>
+         <pages>847</pages>
+         <rating>1</rating>
+         <releaseDate>1977-05-21</releaseDate>
+      </book>
+      <book>
+         <title>Carrie</title>
+         <author>Stephen King</author>
+         <category>horror</category>
+         <pages>521</pages>
+         <rating>4</rating>
+         <releaseDate>1977-05-21</releaseDate>
+      </book>
+      <book>
+         <title>Christine</title>
+         <author>Stephen King</author>
+         <category>horror</category>
+         <pages>215</pages>
+         <rating>brak</rating>
+         <releaseDate>1977-05-21</releaseDate>
+      </book>
+      <book>
+         <title>Cmętarz zwieżąt</title>
+         <author>Stephen King</author>
+         <category>horror</category>
+         <pages>732</pages>
+         <rating>4</rating>
+         <releaseDate>1977-05-21</releaseDate>
+      </book>
+      <book>
+         <title>Czarnoksiężnik i kryształ</title>
+         <author>Stephen King</author>
+         <category>horror</category>
+         <pages>423</pages>
+         <rating>brak</rating>
+         <releaseDate>1977-05-02</releaseDate>
+      </book>
+      <book>
+         <title>Sherlock Holmes</title>
+         <author>Stephen King</author>
+         <category>akcja</category>
+         <pages>624</pages>
+         <rating>2</rating>
+         <releaseDate>2001-12-25</releaseDate>
+      </book>
+      <book>
+         <title>Już mnie nie oszukasz</title>
+         <author>Harlan Coben</author>
+         <category>kryminał</category>
+         <pages>314</pages>
+         <rating>brak</rating>
+         <releaseDate>2016-12-25</releaseDate>
+      </book>
+      <book>
+         <title>Aż śmierć nas rozłączy</title>
+         <author>Harlan Coben</author>
+         <category>powieść</category>
+         <pages>822</pages>
+         <rating>5</rating>
+         <releaseDate>1999-02-22</releaseDate>
+      </book>
+      <book>
+         <title>Bez pożegnania</title>
+         <author>Harlan Coben</author>
+         <category>powieść</category>
+         <pages>624</pages>
+         <rating>3</rating>
+         <releaseDate>1999-02-03</releaseDate>
+      </book>
+      <book>
+         <title>Aż śmierć nas rozłączy</title>
+         <author>Harlan Coben</author>
+         <category>powieść</category>
+         <pages>324</pages>
+         <rating>1</rating>
+         <releaseDate>1999-02-22</releaseDate>
+      </book>
+      <book>
+         <title>Bez skrupułów</title>
+         <author>Harlan Coben</author>
+         <category>powieść</category>
+         <pages>645</pages>
+         <rating>2</rating>
+         <releaseDate>1999-02-22</releaseDate>
+      </book>
+      <book>
+         <title>Bez śladu</title>
+         <author>Harlan Coben</author>
+         <category>powieść</category>
+         <pages>631</pages>
+         <rating>5</rating>
+         <releaseDate>1999-02-22</releaseDate>
+      </book>
+      <book>
+         <title>Błękitna krew</title>
+         <author>Harlan Coben</author>
+         <category>powieść</category>
+         <pages>423</pages>
+         <rating>brak</rating>
+         <releaseDate>1999-02-22</releaseDate>
+      </book>
+   </books>
+   <stats>
+      <booksCount>20</booksCount>
+      <authorsCount>3</authorsCount>
+      <categoriesCount>5</categoriesCount>
+      <averagePages>481</averagePages>
+      <date>2019-05-09T16:44:35.252Z</date>
+   </stats>
+</report>
