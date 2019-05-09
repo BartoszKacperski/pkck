@@ -16,7 +16,7 @@
                         </xsl:element>
                         <xsl:element name="author">
                             <xsl:value-of select="$author/firstName"/>
-                            <xsl:text></xsl:text>
+                            <xsl:text> </xsl:text>
                             <xsl:value-of select="$author/lastName"/>
                         </xsl:element>
                         <xsl:element name="category">
@@ -43,10 +43,8 @@
             <xsl:element name="stats">
                 <xsl:variable name="booksCount" select="count(/root/bookstore/books/book)"/>
                 <xsl:variable name="authorsCount" select="count(/root/bookstore/authors/author)"/>
+                <xsl:variable name="totalPages" select="sum(/root/bookstore/books/book/@pages[number(.) = number(.)])"/>
 
-                <xsl:element name="date">
-                    <xsl:value-of select="current-dateTime()"/>
-                </xsl:element>
                 <xsl:element name="booksCount">
                     <xsl:value-of select="$booksCount"/>
                 </xsl:element>
@@ -55,6 +53,9 @@
                 </xsl:element>
                 <xsl:element name="categoriesCount">
                     <xsl:value-of select="count(distinct-values(/root/bookstore/books/book/@category))"/>
+                </xsl:element>
+                <xsl:element name="averagePages">
+                    <xsl:value-of select="format-number($totalPages div $booksCount, '0.00')"/>
                 </xsl:element>
                 <xsl:element name="date">
                     <xsl:value-of select="current-dateTime()"/>

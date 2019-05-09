@@ -43,7 +43,7 @@
                     <day>19</day>
                 </releaseDate>
             </book>
-            <book bookId="b2" authorId="a1" category="horror" rating="2">
+            <book bookId="b2" authorId="a1" category="horror" pages="123" rating="2">
                 <title>999 tom 1</title>
                 <releaseDate>
                     <year>1977</year>
@@ -59,7 +59,7 @@
                     <day>21</day>
                 </releaseDate>
             </book>
-            <book bookId="b4" authorId="a1" category="horror" rating="4">
+            <book bookId="b4" authorId="a1" category="horror" pages="421" rating="4">
                 <title>Ballada o celnym strzale</title>
                 <releaseDate>
                     <year>1977</year>
@@ -67,7 +67,7 @@
                     <day>21</day>
                 </releaseDate>
             </book>
-            <book bookId="b5" authorId="a1" category="horror" rating="brak">
+            <book bookId="b5" authorId="a1" category="horror" pages="65" rating="brak">
                 <title>Bastion</title>
                 <releaseDate>
                     <year>1977</year>
@@ -75,7 +75,7 @@
                     <day>21</day>
                 </releaseDate>
             </book>
-            <book bookId="b6" authorId="a1" category="horror" rating="2">
+            <book bookId="b6" authorId="a1" category="horror" pages="545" rating="2">
                 <title>Bazar złych snów</title>
                 <releaseDate>
                     <year>1977</year>
@@ -83,7 +83,7 @@
                     <day>21</day>
                 </releaseDate>
             </book>
-            <book bookId="b7" authorId="a1" category="horror" rating="brak">
+            <book bookId="b7" authorId="a1" category="horror" pages="754" rating="brak">
                 <title>Bezsenność</title>
                 <releaseDate>
                     <year>1977</year>
@@ -91,7 +91,7 @@
                     <day>21</day>
                 </releaseDate>
             </book>
-            <book bookId="b8" authorId="a1" category="horror" rating="1">
+            <book bookId="b8" authorId="a1" category="horror" pages="847" rating="1">
                 <title>Buick 8</title>
                 <releaseDate>
                     <year>1977</year>
@@ -99,7 +99,7 @@
                     <day>21</day>
                 </releaseDate>
             </book>
-            <book bookId="b9" authorId="a1" category="horror" rating="4">
+            <book bookId="b9" authorId="a1" category="horror" pages="521" rating="4">
                 <title>Carrie</title>
                 <releaseDate>
                     <year>1977</year>
@@ -107,7 +107,7 @@
                     <day>21</day>
                 </releaseDate>
             </book>
-            <book bookId="b10" authorId="a1" category="horror" rating="brak">
+            <book bookId="b10" authorId="a1" category="horror" pages="215" rating="brak">
                 <title>Christine</title>
                 <releaseDate>
                     <year>1977</year>
@@ -115,7 +115,7 @@
                     <day>21</day>
                 </releaseDate>
             </book>
-            <book bookId="b11" authorId="a1" category="horror" rating="4">
+            <book bookId="b11" authorId="a1" category="horror" pages="732" rating="4">
                 <title>Cmętarz zwieżąt</title>
                 <releaseDate>
                     <year>1977</year>
@@ -123,7 +123,7 @@
                     <day>21</day>
                 </releaseDate>
             </book>
-            <book bookId="b12" authorId="a1" category="horror" rating="brak">
+            <book bookId="b12" authorId="a1" category="horror" pages="423" rating="brak">
                 <title>Czarnoksiężnik i kryształ</title>
                 <releaseDate>
                     <year>1977</year>
@@ -132,7 +132,7 @@
                 </releaseDate>
             </book>
 
-            <book bookId="b13" authorId="a1" category="akcja" rating="2">
+            <book bookId="b13" authorId="a1" category="akcja" pages="624" rating="2">
                 <title>Sherlock Holmes</title>
                 <releaseDate>
                     <year>2001</year>
@@ -141,7 +141,7 @@
                 </releaseDate>
             </book>
 
-            <book bookId="b14" authorId="a3" category="kryminał" rating="brak">
+            <book bookId="b14" authorId="a3" category="kryminał" pages="314" rating="brak">
                 <title>Już mnie nie oszukasz</title>
                 <releaseDate>
                     <year>2016</year>
@@ -149,7 +149,7 @@
                     <day>25</day>
                 </releaseDate>
             </book>
-            <book bookId="b15" authorId="a3" category="powieść" rating="5">
+            <book bookId="b15" authorId="a3" category="powieść" pages="822" rating="5">
                 <title>Aż śmierć nas rozłączy</title>
                 <releaseDate>
                     <year>1999</year>
@@ -157,7 +157,7 @@
                     <day>22</day>
                 </releaseDate>
             </book>
-            <book bookId="b16" authorId="a3" category="powieść" rating="3">
+            <book bookId="b16" authorId="a3" category="powieść" pages="624" rating="3">
                 <title>Bez pożegnania</title>
                 <releaseDate>
                     <year>1999</year>
@@ -165,7 +165,7 @@
                     <day>03</day>
                 </releaseDate>
             </book>
-            <book bookId="b17" authorId="a3" category="powieść" rating="1">
+            <book bookId="b17" authorId="a3" category="powieść" pages="324" rating="1">
                 <title>Aż śmierć nas rozłączy</title>
                 <releaseDate>
                     <year>1999</year>
@@ -173,7 +173,7 @@
                     <day>22</day>
                 </releaseDate>
             </book>
-            <book bookId="b18" authorId="a3" category="powieść" rating="2">
+            <book bookId="b18" authorId="a3" category="powieść" pages="645" rating="2">
                 <title>Bez skrupułów</title>
                 <releaseDate>
                     <year>1999</year>
@@ -181,7 +181,7 @@
                     <day>22</day>
                 </releaseDate>
             </book>
-            <book bookId="b19" authorId="a3" category="powieść" rating="5">
+            <book bookId="b19" authorId="a3" category="powieść" pages="631" rating="5">
                 <title>Bez śladu</title>
                 <releaseDate>
                     <year>1999</year>
@@ -189,7 +189,7 @@
                     <day>22</day>
                 </releaseDate>
             </book>
-            <book bookId="b20" authorId="a3" category="powieść" rating="brak">
+            <book bookId="b20" authorId="a3" category="powieść" pages="423" rating="brak">
                 <title>Błękitna krew</title>
                 <releaseDate>
                     <year>1999</year>
