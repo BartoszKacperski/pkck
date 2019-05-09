@@ -9,7 +9,6 @@
                 <xsl:for-each select="root/bookstore/books/book">
                     <xsl:variable name="Id" select="@authorId"/>
                     <xsl:variable name="author" select="/root/bookstore/authors/author[@authorId eq $Id]"/>
-                    <xsl:variable name="category" select="@category"/>
 
                     <xsl:element name="book">
                         <xsl:element name="title">
@@ -21,7 +20,15 @@
                             <xsl:value-of select="$author/lastName"/>
                         </xsl:element>
                         <xsl:element name="category">
-                            <xsl:value-of select="$category"/>
+                            <xsl:value-of select="@category"/>
+                        </xsl:element>
+                        <xsl:if test="@pages">
+                            <xsl:element name="pages">
+                                <xsl:value-of select="@pages"/>
+                            </xsl:element>
+                        </xsl:if>
+                        <xsl:element name="rating">
+                            <xsl:value-of select="@rating"/>
                         </xsl:element>
                         <xsl:element name="releaseDate">
                             <xsl:value-of select="releaseDate/year"/>
@@ -32,6 +39,26 @@
                         </xsl:element>
                     </xsl:element>
                 </xsl:for-each>
+            </xsl:element>
+            <xsl:element name="stats">
+                <xsl:variable name="booksCount" select="count(/root/bookstore/books/book)"/>
+                <xsl:variable name="authorsCount" select="count(/root/bookstore/authors/author)"/>
+
+                <xsl:element name="date">
+                    <xsl:value-of select="current-dateTime()"/>
+                </xsl:element>
+                <xsl:element name="booksCount">
+                    <xsl:value-of select="$booksCount"/>
+                </xsl:element>
+                <xsl:element name="authorsCount">
+                    <xsl:value-of select="$authorsCount"/>
+                </xsl:element>
+                <xsl:element name="categoriesCount">
+                    <xsl:value-of select="count(distinct-values(/root/bookstore/books/book/@category))"/>
+                </xsl:element>
+                <xsl:element name="date">
+                    <xsl:value-of select="current-dateTime()"/>
+                </xsl:element>
             </xsl:element>
         </xsl:element>
     </xsl:template>
