@@ -17,4 +17,12 @@ public class Owner {
     private List<String> firstNames;
     @XmlElement(name = "lastName")
     private String lastName;
+
+    public boolean addFirstName(String firstName) {
+        return firstNames.add(firstName);
+    }
+
+    public void clearFirstNames() {
+        firstNames.clear();
+    }
 }

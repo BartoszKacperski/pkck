@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.GridPane?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<GridPane fx:controller="com.bkpp.LoadController" prefHeight="150.0" prefWidth="300.0"
+          xmlns="http://javafx.com/javafx/8.0.172-ea"
+          xmlns:fx="http://javafx.com/fxml/1" hgap="10" vgap="10">
+    <padding>
+        <Insets top="25" right="25" bottom="25" left="25"/>
+    </padding>
+    <Label fx:id="xmlPath" GridPane.columnIndex="0" prefWidth="125">
+    </Label>
+    <Label fx:id="xsdPath" GridPane.columnIndex="1" prefWidth="125">
+    </Label>
+    <Button text="%xml" onAction="#loadXML" GridPane.columnIndex="0" GridPane.rowIndex="1" prefWidth="125">
+    </Button>
+    <Button text="%xsd" onAction="#loadXSD" GridPane.columnIndex="1" GridPane.rowIndex="1" prefWidth="125">
+    </Button>
+    <Button text="%continue" onAction="#startXmlViewer" GridPane.columnIndex="1" GridPane.rowIndex="2" prefWidth="125">
+    </Button>
+</GridPane>

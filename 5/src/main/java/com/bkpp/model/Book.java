@@ -12,11 +12,12 @@ public class Book {
     @XmlAttribute(name = "bookId")
     private String bookId;
     @XmlAttribute(name = "authorId")
-    private String authorId;
+    @XmlIDREF
+    private Author author;
     @XmlAttribute(name = "category")
     private Category category;
     @XmlAttribute(name = "pages")
-    private int pages;
+    private Integer pages;
     @XmlAttribute(name = "rating")
     private Rating rating;
     @XmlElement(name = "title")

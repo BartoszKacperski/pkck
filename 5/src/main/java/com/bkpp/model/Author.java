@@ -10,6 +10,7 @@ import java.util.List;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "author")
 public class Author {
+    @XmlID
     @XmlAttribute(name = "authorId")
     private String authorId;
     @XmlElement(name = "firstName")
@@ -18,4 +19,12 @@ public class Author {
     private String lastName;
     @XmlElement(name = "pseudonym")
     private String pseudonym;
+
+    public void clearFirstNames() {
+        firstNames.clear();
+    }
+
+    public boolean addFirstName(String name) {
+        return firstNames.add(name);
+    }
 }

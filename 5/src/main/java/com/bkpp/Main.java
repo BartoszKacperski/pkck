@@ -6,31 +6,32 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import javax.xml.bind.JAXBException;
+import java.util.ResourceBundle;
 
 public class Main extends Application {
 
+    private static Stage stage;
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/sample.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/load.fxml"));
+        fxmlLoader.setResources(ResourceBundle.getBundle("bundles.XMLReaderBundle"));
+
+        Parent root = fxmlLoader.load();
+
         Scene scene = new Scene(root);
-        primaryStage.setMaximized(true);
-        primaryStage.setResizable(false);
-        primaryStage.setTitle("PKCS Bartosz Kacperski & Paweł Pomarański");
+        primaryStage.setTitle(fxmlLoader.getResources().getString("appTitle"));
         primaryStage.setScene(scene);
         primaryStage.show();
+        stage = primaryStage;
     }
 
-
-    public static void main(String[] args) throws JAXBException {
-        launch(args);
-        /*JAXBContext jaxbContext = JAXBContext.newInstance(Root.class);
-        Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-
-        Root root = (Root) unmarshaller.unmarshal(new File("BookStore.xml"));
-
-        root.getBookStore().getAuthors().forEach(System.out::println);
-        root.getBookStore().getBooks().forEach(System.out::println);
-        root.getOwners().forEach(System.out::println);*/
+    public static Stage getPrimaryStage() {
+        return stage;
     }
+
 }

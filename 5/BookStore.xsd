@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:type="http://www.example.org/types" targetNamespace="http://www.example.org/types" elementFormDefault="qualified">
 
     <xs:complexType name="rootType">
         <xs:sequence>
-            <xs:element name="info" type="type:infoType" />
+            <xs:element name="owners" type="type:ownersType" />
             <xs:element name="bookstore" type="type:bookstoreType" />
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="infoType">
-        <xs:sequence>
-            <xs:element name="owners" type="type:ownersType"/>
-            <xs:element name="description" type="xs:normalizedString" />
-        </xs:sequence>
-    </xs:complexType>
 
     <xs:complexType name="ownersType">
         <xs:sequence>
@@ -97,7 +91,7 @@
         <xs:sequence>
             <xs:element name="year" type="xs:integer"/>
             <xs:element name="month" type="type:month"/>
-            <xs:element name="day" type="xs:day"/>
+            <xs:element name="day" type="type:day"/>
         </xs:sequence>
     </xs:complexType>
 
