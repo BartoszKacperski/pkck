@@ -10,9 +10,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Priority;
 import javafx.stage.FileChooser;
 import org.xml.sax.SAXException;
 
@@ -35,26 +32,36 @@ public class LoadController implements Initializable {
     private ResourceBundle resourceBundle;
     private String xsdAbsolutePath;
     private String xmlAbsolutePath;
+    private Root xmlRoot;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.resourceBundle = resourceBundle;
     }
 
-    public void startXmlViewer(ActionEvent actionEvent) {
-        try {
-            validate();
-            start();
-        } catch (IOException | SAXException | JAXBException e){
-            showErrorDialog(e);
+    public void tryToContinue() {
+        if(xsdAbsolutePath != null && xmlAbsolutePath != null){
+            try {
+                loadXmlRoot();
+                validate();
+                startXmlViewer();
+            } catch (IOException e) {
+                showErrorDialog(resourceBundle.getString("errorTitle"),
+                                resourceBundle.getString("errorHeader"),
+                                resourceBundle.getString("fxmlLoaderError"));
+            } catch (JAXBException | SAXException e) {
+                showErrorDialog(resourceBundle.getString("errorTitle"),
+                                resourceBundle.getString("errorHeader"),
+                                e.getMessage());
+            }
         }
     }
 
     private void validate() throws SAXException, JAXBException {
-        Validator.validate(xsdAbsolutePath, getXmlRoot());
+        Validator.validate(xsdAbsolutePath, xmlRoot);
     }
 
-    private void start() throws IOException, JAXBException {
+    private void startXmlViewer() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/xml_viewer.fxml"));
         fxmlLoader.setResources(ResourceBundle.getBundle("bundles.XMLReaderBundle"));
 
@@ -63,7 +70,7 @@ public class LoadController implements Initializable {
 
         controller.setXmlPath(xmlAbsolutePath);
         controller.setXsdPath(xsdAbsolutePath);
-        controller.setXmlRoot(getXmlRoot());
+        controller.setXmlRoot(xmlRoot);
         Scene scene = new Scene(root);
 
         Main.getPrimaryStage().setScene(scene);
@@ -71,42 +78,26 @@ public class LoadController implements Initializable {
         Main.getPrimaryStage().show();
     }
 
-    private Root getXmlRoot() throws JAXBException {
+    private void loadXmlRoot() throws JAXBException {
         JAXBContext context = JAXBContext.newInstance(Root.class);
         Unmarshaller unmarshaller = context.createUnmarshaller();
 
-        return (Root) unmarshaller.unmarshal(new File(xmlAbsolutePath));
+        xmlRoot = (Root) unmarshaller.unmarshal(new File(xmlAbsolutePath));
     }
 
-    private void showErrorDialog(Exception exception) {
+    private void showErrorDialog(String title,
+                                String header,
+                                String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(resourceBundle.getString("validationError"));
-        alert.setHeaderText(resourceBundle.getString("validationInfo"));
-
-
-        Label label = new Label(resourceBundle.getString("stacktrace"));
-
-        TextArea textArea = new TextArea(exception.getMessage());
-        textArea.setEditable(false);
-        textArea.setWrapText(true);
-
-        textArea.setMaxWidth(Double.MAX_VALUE);
-        textArea.setMaxHeight(Double.MAX_VALUE);
-        GridPane.setVgrow(textArea, Priority.ALWAYS);
-        GridPane.setHgrow(textArea, Priority.ALWAYS);
-
-        GridPane expContent = new GridPane();
-        expContent.setMaxWidth(Double.MAX_VALUE);
-        expContent.add(label, 0, 0);
-        expContent.add(textArea, 0, 1);
-
-        alert.getDialogPane().setExpandableContent(expContent);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(message);
 
         alert.showAndWait();
     }
 
-    public void loadXSD(ActionEvent actionEvent) {
-        FileChooser fileChooser = fileChooser();
+    public void loadXSDPath() {
+        FileChooser fileChooser = fileChooser(new FileChooser.ExtensionFilter("XML Schema","*.xsd"));
 
         Optional<File> file = Optional.ofNullable(fileChooser.showOpenDialog(Main.getPrimaryStage()));
 
@@ -116,8 +107,8 @@ public class LoadController implements Initializable {
         });
     }
 
-    public void loadXML(ActionEvent actionEvent) {
-        FileChooser fileChooser = fileChooser();
+    public void loadXMLPath() {
+        FileChooser fileChooser = fileChooser(new FileChooser.ExtensionFilter("XML","*.xml"));
 
         Optional<File> file = Optional.ofNullable(fileChooser.showOpenDialog(Main.getPrimaryStage()));
 
@@ -127,10 +118,11 @@ public class LoadController implements Initializable {
         });
     }
 
-    private FileChooser fileChooser() {
+    private FileChooser fileChooser(FileChooser.ExtensionFilter extensionFilter) {
         FileChooser fileChooser = new FileChooser();
 
         fileChooser.setTitle(resourceBundle.getString("chooseFile"));
+        fileChooser.getExtensionFilters().add(extensionFilter);
 
         File defaultDirectory = new File(Paths.get(".").toAbsolutePath().normalize().toString());
         fileChooser.setInitialDirectory(defaultDirectory);

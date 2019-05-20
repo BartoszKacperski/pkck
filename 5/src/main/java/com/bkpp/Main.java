@@ -26,6 +26,7 @@ public class Main extends Application {
         Scene scene = new Scene(root);
         primaryStage.setTitle(fxmlLoader.getResources().getString("appTitle"));
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
         primaryStage.show();
         stage = primaryStage;
     }

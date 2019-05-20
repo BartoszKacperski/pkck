@@ -22,6 +22,8 @@ public class AddOwnerDialog extends Dialog<Owner> {
         super.setTitle(resourceBundle.getString("addOwner"));
 
         GridPane root = new GridPane();
+        root.setHgap(10.0);
+        root.setVgap(10.0);
 
         root.add(new Label(resourceBundle.getString("firstNames")), 0 , 0);
         root.add(new Label(resourceBundle.getString("lastName")), 0 , 1);

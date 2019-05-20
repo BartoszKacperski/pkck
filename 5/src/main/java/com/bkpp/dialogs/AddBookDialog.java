@@ -1,6 +1,7 @@
 package com.bkpp.dialogs;
 
 import com.bkpp.model.*;
+import com.bkpp.utils.EnumI18N;
 import com.bkpp.utils.IntegerTextViewListener;
 import javafx.collections.FXCollections;
 import javafx.scene.control.*;
@@ -25,6 +26,8 @@ public class AddBookDialog extends Dialog<Book> {
         super.setTitle(resourceBundle.getString("addBook"));
 
         GridPane root = new GridPane();
+        root.setHgap(10.0);
+        root.setVgap(10.0);
 
         root.add(new Label(resourceBundle.getString("ID")), 0 , 0);
         root.add(new Label(resourceBundle.getString("authorID")), 0 , 1);
@@ -36,25 +39,44 @@ public class AddBookDialog extends Dialog<Book> {
 
         Map<String, Author> authorsNames = authors.stream().collect(Collectors.toMap(this::mapAuthor, a ->a));
 
-        ComboBox<Author> authorsComboBox = new ComboBox<>(FXCollections.observableList(authors));
-        authorsComboBox.setConverter(new StringConverter<>() {
+        ComboBox<String> authorsComboBox = new ComboBox<>(FXCollections.observableArrayList(authorsNames.keySet()));
+        authorsComboBox.setPrefWidth(150.0);
+
+        ComboBox<Category> categories = new ComboBox<>(FXCollections.observableArrayList(Category.values()));
+        categories.setPrefWidth(150.0);
+        categories.setConverter(new StringConverter<>() {
+            private final EnumI18N enumI18N = new EnumI18N(resourceBundle);
+
             @Override
-            public String toString(Author author) {
-                return mapAuthor(author);
+            public String toString(Category category) {
+                return enumI18N.getCategoryI18N(category);
             }
 
             @Override
-            public Author fromString(String s) {
-                return authorsNames.get(s);
+            public Category fromString(String s) {
+                return enumI18N.getCategoryI18N(s);
             }
         });
 
-        ComboBox<Category> categories = new ComboBox<>(FXCollections.observableArrayList(Category.values()));
+        ComboBox<Rating> ratings = new ComboBox<>(FXCollections.observableArrayList(Rating.values()));
+        ratings.setPrefWidth(150.0);
+        ratings.setConverter(new StringConverter<>() {
+            private final EnumI18N enumI18N = new EnumI18N(resourceBundle);
+
+            @Override
+            public String toString(Rating rating) {
+                return enumI18N.getRatingI18N(rating);
+            }
+
+            @Override
+            public Rating fromString(String s) {
+                return enumI18N.getRaringI18N(s);
+            }
+        });
 
         TextField pages = new TextField();
         pages.textProperty().addListener(new IntegerTextViewListener(pages));
 
-        ComboBox<Rating> ratings = new ComboBox<>(FXCollections.observableArrayList(Rating.values()));
         TextField title = new TextField();
         DatePicker datePicker = new DatePicker(LocalDate.now());
 
@@ -76,7 +98,7 @@ public class AddBookDialog extends Dialog<Book> {
                 Book book = new Book();
 
                 book.setBookId(bookId);
-                book.setAuthor(authorsComboBox.getSelectionModel().getSelectedItem());
+                book.setAuthor(authorsNames.get(authorsComboBox.getSelectionModel().getSelectedItem()));
                 book.setCategory(categories.getSelectionModel().getSelectedItem());
                 book.setPages(Integer.valueOf(pages.getText()));
                 book.setRating(ratings.getSelectionModel().getSelectedItem());

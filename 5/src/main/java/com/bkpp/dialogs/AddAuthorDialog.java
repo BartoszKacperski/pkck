@@ -22,6 +22,8 @@ public class AddAuthorDialog extends Dialog<Author> {
         super.setTitle(resourceBundle.getString("addAuthor"));
 
         GridPane root = new GridPane();
+        root.setHgap(10.0);
+        root.setVgap(10.0);
 
         root.add(new Label(resourceBundle.getString("ID")), 0 , 0);
         root.add(new Label(authorId), 1, 0);

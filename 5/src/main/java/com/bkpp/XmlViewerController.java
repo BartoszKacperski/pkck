@@ -64,36 +64,35 @@ public class XmlViewerController implements Initializable {
         Platform.runLater(this::loadAllContent);
     }
 
-    public void onOwnersSelected(Event event) {
+    public void onOwnersSelected() {
         if(xmlRoot != null){
             owners.setContent(createOwnersContent());
         }
     }
 
-    public void onAuthorsSelected(Event event) {
+    public void onAuthorsSelected() {
         if(xmlRoot != null){
             authors.setContent(createAuthorsContent());
         }
 
     }
 
-    public void onBooksSelected(Event event) {
+    public void onBooksSelected() {
         if(xmlRoot != null){
             books.setContent(createBooksContent());
         }
     }
 
-
-    public void saveXml(ActionEvent actionEvent) {
+    public void saveXml() {
         try{
             validate();
             save(xmlPath);
         } catch (JAXBException | SAXException e) {
-            showErrorDialog(e.getMessage());
+            showErrorDialog(resourceBundle.getString("validationError"));
         }
     }
 
-    public void saveAsXml(ActionEvent actionEvent) {
+    public void saveAsXml() {
         FileChooser fileChooser = fileChooser();
 
         Optional<File> optionalFile = Optional.ofNullable(fileChooser.showSaveDialog(Main.getPrimaryStage()));
@@ -102,15 +101,16 @@ public class XmlViewerController implements Initializable {
             try {
                 save(file.getAbsolutePath());
             } catch (JAXBException e) {
-                showErrorDialog(e.getMessage());
+                showErrorDialog(resourceBundle.getString("saveXmlError"));
             }
         });
     }
 
-    public void validateXml(ActionEvent actionEvent) {
+    public void validateXml() {
         try {
             validate();
-            //TODO show xml is valid
+            showInfoDialog(resourceBundle.getString("validationSuccess"),
+                            resourceBundle.getString("validationSuccessInfo"),"");
         } catch (SAXException | JAXBException e) {
             showErrorDialog(e.getMessage());
         }
@@ -122,8 +122,19 @@ public class XmlViewerController implements Initializable {
 
     private void showErrorDialog(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setHeaderText("Ooops, pojawil sie problem!");
+        alert.setTitle(resourceBundle.getString("errorTitle"));
+        alert.setHeaderText(resourceBundle.getString("errorHeader"));
+        alert.setContentText(message);
+
+        alert.showAndWait();
+    }
+
+    private void showInfoDialog(String title,
+                                String header,
+                                String message){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
         alert.setContentText(message);
 
         alert.showAndWait();

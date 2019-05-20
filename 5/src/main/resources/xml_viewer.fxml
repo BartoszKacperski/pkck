@@ -18,6 +18,9 @@
             <SeparatorMenuItem/>
             <MenuItem mnemonicParsing="false" text="%validate" onAction="#validateXml"/>
         </Menu>
+        <Menu mnemonicParsing="false" text="%export">
+            <MenuItem mnemonicParsing="false" text="%pdf" />
+        </Menu>
     </MenuBar>
     <StackPane prefHeight="400" prefWidth="800">
        <TabPane fx:id="tab" visible="false">

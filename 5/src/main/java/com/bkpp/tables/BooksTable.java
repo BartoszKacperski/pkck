@@ -4,6 +4,7 @@ import com.bkpp.model.Author;
 import com.bkpp.model.Book;
 import com.bkpp.model.Category;
 import com.bkpp.model.Rating;
+import com.bkpp.utils.EnumI18N;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -27,6 +28,7 @@ public class BooksTable extends TableView<Book> {
     private List<Author> authors;
     private TableCellExceptionHandler tableCellExceptionHandler;
     private ResourceBundle resourceBundle;
+    private EnumI18N enumI18N;
 
     public BooksTable(List<Book> books, List<Author> authors, TableCellExceptionHandler tableCellExceptionHandler, ResourceBundle resourceBundle){
         super(FXCollections.observableArrayList(books));
@@ -34,6 +36,7 @@ public class BooksTable extends TableView<Book> {
         this.authors = authors;
         this.tableCellExceptionHandler = tableCellExceptionHandler;
         this.resourceBundle = resourceBundle;
+        this.enumI18N = new EnumI18N(resourceBundle);
         setUp();
     }
 
@@ -82,18 +85,22 @@ public class BooksTable extends TableView<Book> {
     }
 
     private void setUpCategoryColumn() {
-        TableColumn<Book, Category> categoryColumn = new TableColumn<>(resourceBundle.getString("category"));
+        TableColumn<Book, String> categoryColumn = new TableColumn<>(resourceBundle.getString("category"));
 
         categoryColumn.setCellValueFactory(param-> {
             Book book = param.getValue();
 
-            return new SimpleObjectProperty<>(book.getCategory());
-        });
-        categoryColumn.setCellFactory(ComboBoxTableCell.forTableColumn(FXCollections.observableArrayList(Category.values())));
-        categoryColumn.setOnEditCommit(event -> {
-            TablePosition<Book, Category> pos = event.getTablePosition();
+            String categoryString = enumI18N.getCategoryI18N(book.getCategory());
 
-            Category newCategory = event.getNewValue();
+            return new SimpleStringProperty(categoryString);
+        });
+
+        categoryColumn.setCellFactory(ComboBoxTableCell.forTableColumn(FXCollections.observableArrayList(enumI18N.getCategoriesI18N().keySet())));
+
+        categoryColumn.setOnEditCommit(event -> {
+            TablePosition<Book, String> pos = event.getTablePosition();
+
+            Category newCategory = enumI18N.getCategoryI18N(event.getNewValue());
 
             int row = pos.getRow();
 
@@ -124,18 +131,22 @@ public class BooksTable extends TableView<Book> {
     }
 
     private void setUpRatingColumn() {
-        TableColumn<Book, Rating> ratingColumn = new TableColumn<>(resourceBundle.getString("rating"));
+        TableColumn<Book, String> ratingColumn = new TableColumn<>(resourceBundle.getString("rating"));
 
         ratingColumn.setCellValueFactory(param-> {
             Book book = param.getValue();
 
-            return new SimpleObjectProperty<>(book.getRating());
-        });
-        ratingColumn.setCellFactory(ComboBoxTableCell.forTableColumn(FXCollections.observableArrayList(Rating.values())));
-        ratingColumn.setOnEditCommit(event -> {
-            TablePosition<Book, Rating> pos = event.getTablePosition();
+            String ratingString = enumI18N.getRatingI18N(book.getRating());
 
-            Rating newRating = event.getNewValue();
+            return new SimpleStringProperty(ratingString);
+        });
+
+        ratingColumn.setCellFactory(ComboBoxTableCell.forTableColumn(FXCollections.observableArrayList(enumI18N.getRatingI18N().keySet())));
+
+        ratingColumn.setOnEditCommit(event -> {
+            TablePosition<Book, String> pos = event.getTablePosition();
+
+            Rating newRating = enumI18N.getRaringI18N(event.getNewValue());
 
             int row = pos.getRow();
 

@@ -16,10 +16,10 @@
     </Label>
     <Label fx:id="xsdPath" GridPane.columnIndex="1" prefWidth="125">
     </Label>
-    <Button text="%xml" onAction="#loadXML" GridPane.columnIndex="0" GridPane.rowIndex="1" prefWidth="125">
+    <Button text="%xml" onAction="#loadXMLPath" GridPane.columnIndex="0" GridPane.rowIndex="1" prefWidth="125">
     </Button>
-    <Button text="%xsd" onAction="#loadXSD" GridPane.columnIndex="1" GridPane.rowIndex="1" prefWidth="125">
+    <Button text="%xsd" onAction="#loadXSDPath" GridPane.columnIndex="1" GridPane.rowIndex="1" prefWidth="125">
     </Button>
-    <Button text="%continue" onAction="#startXmlViewer" GridPane.columnIndex="1" GridPane.rowIndex="2" prefWidth="125">
+    <Button text="%continue" onAction="#tryToContinue" GridPane.columnIndex="1" GridPane.rowIndex="2" prefWidth="125">
     </Button>
 </GridPane>
