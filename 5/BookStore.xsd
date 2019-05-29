@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:type="http://www.example.org/types" targetNamespace="http://www.example.org/types" elementFormDefault="qualified">
+
+    <xs:complexType name="rootType">
+        <xs:sequence>
+            <xs:element name="owners" type="type:ownersType" />
+            <xs:element name="bookstore" type="type:bookstoreType" />
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="ownersType">
+        <xs:sequence>
+            <xs:element name="owner" type="type:ownerType" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:group name="namesGroup">
+        <xs:sequence>
+            <xs:element name="firstName" type="xs:normalizedString" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="lastName" type="xs:normalizedString"/>
+        </xs:sequence>
+    </xs:group>
+
+    <xs:complexType name="ownerType">
+        <xs:group ref="type:namesGroup"/>
+    </xs:complexType>
+
+    <xs:complexType name="bookstoreType">
+        <xs:sequence>
+            <xs:element name="authors" type="type:authorsType"/>
+            <xs:element name="books" type="type:booksType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="authorsType">
+        <xs:sequence>
+            <xs:element name="author" type="type:authorType" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="authorType">
+        <xs:sequence>
+            <xs:group ref="type:namesGroup"/>
+            <xs:element name="pseudonym" type="xs:normalizedString" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+        <xs:attribute name="authorId" type="xs:token" use="required" />
+    </xs:complexType>
+
+    <xs:complexType name="booksType">
+        <xs:sequence>
+            <xs:element name="book" type="type:bookType" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="categories">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="kryminał"/>
+            <xs:enumeration value="powieść"/>
+            <xs:enumeration value="horror"/>
+            <xs:enumeration value="dramat"/>
+            <xs:enumeration value="akcja"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="ratings">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="2"/>
+            <xs:enumeration value="3"/>
+            <xs:enumeration value="4"/>
+            <xs:enumeration value="5"/>
+            <xs:enumeration value="brak"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="bookType">
+        <xs:sequence>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="releaseDate" type="type:releaseDateType"/>
+        </xs:sequence>
+        <xs:attribute name="authorId" type="xs:token" use="required"/>
+        <xs:attribute name="bookId" type="xs:token" use="required"/>
+        <xs:attribute name="category" type="type:categories" use="required"/>
+        <xs:attribute name="pages" type="xs:positiveInteger"/>
+        <xs:attribute name="rating" type="type:ratings" default="brak"/>
+    </xs:complexType>
+
+    <xs:complexType name="releaseDateType">
+        <xs:sequence>
+            <xs:element name="year" type="xs:integer"/>
+            <xs:element name="month" type="type:month"/>
+            <xs:element name="day" type="type:day"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="month">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="12"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="day">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="31"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="root" type="type:rootType">
+        <xs:key name="AuthorId">
+            <xs:selector xpath="type:bookstore/type:authors/type:author"/>
+            <xs:field xpath="@authorId" />
+        </xs:key>
+        <xs:key name="BookId">
+            <xs:selector xpath="type:bookstore/type:books/type:book"/>
+            <xs:field xpath="@bookId" />
+        </xs:key>
+        <xs:keyref name="AuthorRef" refer="type:AuthorId">
+            <xs:selector xpath="type:bookstore/type:books/type:book"/>
+            <xs:field xpath="@authorId"/>
+        </xs:keyref>
+    </xs:element>
+</xs:schema>
