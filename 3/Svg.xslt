@@ -12,7 +12,7 @@
     <xsl:template name="Title">
         <svg width="1500" height="500">
             <text id="Title" x="350" y="50" font-family="Arial" font-size="25">
-                Statystyka filmów
+                Statystyka książek
             </text>
         </svg>
     </xsl:template>
