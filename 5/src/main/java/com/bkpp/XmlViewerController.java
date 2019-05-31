@@ -112,7 +112,7 @@ public class XmlViewerController implements Initializable {
             showInfoDialog(resourceBundle.getString("validationSuccess"),
                             resourceBundle.getString("validationSuccessInfo"),"");
         } catch (SAXException | JAXBException e) {
-            showErrorDialog(e.getMessage());
+            showErrorDialog(resourceBundle.getString("validationError"));
         }
     }
 
